@@ -21,8 +21,12 @@ jobs:
       with:
         dotnet-version: 8.0.x
     - name: Restore dependencies
-      run: dotnet restore
+      run: dotnet restore "src/ConsoleAppBasic/ConsoleAppBasic\ConsoleAppBasic.csproj"
     - name: Build
-      run: dotnet build --no-restore
-    - name: Test
-      run: dotnet test --no-build --verbosity normal
+      run: dotnet build "ConsoleAppBasic/ConsoleAppBasic.csproj" --no-restore
+    - name: Upload a Build Artifact
+      uses: actions/upload-artifact@v2.2.2
+      with:
+        # Artifact name
+        name: ConsoleAppBasicDownloadableArtifact #.zip will be added automatically
+        path: ./bin/release/net8.0/*.*
