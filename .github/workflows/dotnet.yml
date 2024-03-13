@@ -29,4 +29,4 @@ jobs:
       with:
         # Artifact name
         name: ConsoleAppBasicDownloadableArtifact #.zip will be added automatically
-        path: ./bin/release/net8.0/*.*
+        path: ./src/ConsoleAppBasic/bin/release/net8.0/*.*
